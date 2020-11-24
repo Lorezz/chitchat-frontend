@@ -27,4 +27,4 @@ yarn-error.log*
 
 .vercel
 
-/tmp
+tmp
