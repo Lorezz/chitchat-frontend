@@ -1,0 +1,66 @@
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import _ from "lodash";
+import { genName } from "/lib/gen";
+import { getGravatarUrl } from "/lib/gravatar";
+
+const Home = () => {
+  const [nick, setNick] = useState("");
+  const [picNick, setPickNick] = useState(null);
+  const [generated, setGenerated] = useState(null);
+
+  useEffect(() => {
+    const name = genName();
+    const picName = getGravatarUrl(name);
+    setGenerated({ name, picName });
+  }, []);
+
+  useEffect(() => {
+    if (nick) {
+      setPickNick(getGravatarUrl(nick));
+    }
+  }, [nick]);
+  return (
+    <div>
+      <div>
+        <div>
+          {generated && (
+            <div>
+              <h3>generated</h3>
+              <img src={generated.picName} width="100" height="100" />
+              <p>{generated.name}</p>
+            </div>
+          )}
+          <div>
+            <p>{picNick && <img src={picNick} width="100" height="100" />}</p>
+            <input
+              type="text"
+              value={nick}
+              onChange={(e) => setNick(e.target.value)}
+            />
+          </div>
+        </div>
+        <Link href="/chat">
+          <button>chat</button>
+        </Link>
+      </div>
+
+      <style jsx>{`
+        :global(body) {
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+            Helvetica, sans-serif;
+          color: #f4f4f4;
+          background-color: #2b2b2b;
+        }
+        a {
+          color: #4cc587;
+          text-decoration: none;
+          font-size: 13px;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default Home;

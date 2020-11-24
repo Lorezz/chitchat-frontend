@@ -1,0 +1,48 @@
+{
+  "name": "chat-cli",
+  "version": "0.0.3",
+  "author": "Lorenzo Ponticelli aka Lorezz <lorezz.me@gmail.com> (https://lorezz.me/)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "dependencies": {
+    "@chakra-ui/core": "^1.0.0-rc.8",
+    "@hookform/resolvers": "^1.0.0",
+    "axios": "^0.21.0",
+    "framer-motion": "^2.9.4",
+    "jwt-decode": "^3.1.1",
+    "lodash": "^4.17.20",
+    "md5": "^2.3.0",
+    "moment": "^2.29.1",
+    "next": "^10.0.1",
+    "query-string": "^6.13.6",
+    "rc-progress": "^3.1.1",
+    "react": "16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
+    "react-device-detect": "^1.14.0",
+    "react-dom": "16.13.1",
+    "react-dropzone": "^11.2.4",
+    "react-hook-form": "^6.9.6",
+    "react-icons": "^3.11.0",
+    "socket.io-client": "^2.3.1",
+    "swr": "^0.3.8",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}
