@@ -10,6 +10,7 @@ import {
   useTheme
 } from '@chakra-ui/core';
 import { motion } from 'framer-motion';
+
 // import { MdMic, MdFiberManualRecord, MdStop } from 'react-icons/md';
 
 import * as api from 'lib/api';
@@ -153,7 +154,9 @@ function MessageRecorder({ onDone }) {
         borderRadius="lg"
         py={4}
         px={6}>
-        <Text textAlign="center">{title}</Text>
+        <Text textAlign="center" className="noselect">
+          {title}
+        </Text>
         <motion.svg
           height="100"
           width="100"
@@ -184,7 +187,7 @@ function MessageRecorder({ onDone }) {
               setForceStop(false);
             }}></motion.circle>
         </motion.svg>
-        <Text mt={4} mb={2}>
+        <Text mt={4} mb={2} className="noselect">
           {isRecording ? 'RECORDING' : 'NOT RECORDING'}
         </Text>
       </Box>

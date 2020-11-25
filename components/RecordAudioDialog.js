@@ -37,11 +37,11 @@ function RecordAudioDialog({ onDone }) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay>
           <ModalContent bg={bg} color={color}>
-            <ModalHeader>Rec Audio Message</ModalHeader>
+            <ModalHeader className="noselect">Rec Audio Message</ModalHeader>
             <ModalCloseButton />
             <ModalBody style={{ minHeight: '300px' }}>
               {notSupported && (
-                <Text>
+                <Text className="noselect">
                   Sorry... your browser does not support MediaRecorder API
                 </Text>
               )}
