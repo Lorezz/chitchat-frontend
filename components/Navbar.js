@@ -38,7 +38,10 @@ const Nav = () => {
   const logout = async () => {
     try {
       const token = state?.auth?.token;
-      if (token) await signOut(token);
+      if (token) {
+        await signOut(token);
+        dispatch(reset());
+      }
     } catch (e) {
       console.log(e);
     }
