@@ -155,7 +155,7 @@ const Chat = memo(({ user, token }) => {
     return <Spinner />;
   }
 
-  const bg = useColorModeValue('#white', 'gray.900');
+  const bg = useColorModeValue('white', 'gray.900');
   const color = useColorModeValue('gray.900', 'white');
   // const boxBg = useColorModeValue('white', 'gray.900');
   // const boxColor = useColorModeValue('gray.900', 'white');
