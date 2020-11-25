@@ -5,8 +5,13 @@ import { isIE, isSafari } from 'react-device-detect';
 const Message = ({ data }) => {
   const { createdAt, text, _id, user, pic, audio } = data;
   let audioNotSupported = false;
+  let audioType = 'webm';
   if (audio) {
+    console.log('audio  ', audio);
     audioNotSupported = isIE || isSafari;
+    const parts = audio.split('.');
+    console.log('audio type', audioType);
+    if (parts && parts.length > 0) audioType = parts[parts.length - 1];
   }
 
   return (
@@ -45,7 +50,7 @@ const Message = ({ data }) => {
         {audio && (
           <Box style={{ margin: '30px 0' }}>
             <audio controls>
-              <source src={audio} type="audio/webm" />
+              <source src={audio} type={`audio/${audioType}`} />
               <p>
                 Your browser doesn't support HTML5 audio. Here is a
                 <a href={audio}>link to the audio</a> instead.

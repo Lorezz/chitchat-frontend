@@ -64,7 +64,6 @@ function MessageRecorder({ onDone }) {
       const headers = { 'content-type': 'multipart/form-data' };
       const response = await api.upload(formData, headers);
       const { data } = response;
-      console.log('data', data);
       if (data?.error) {
         setError(data.error);
         return;
