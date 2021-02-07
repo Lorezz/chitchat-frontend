@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/core';
+import { Box, Text, Avatar } from '@chakra-ui/core';
 import moment from 'moment';
 import { isIE, isSafari } from 'react-device-detect';
 
@@ -17,17 +17,7 @@ const Message = ({ data }) => {
   return (
     <Box d="flex" key={_id} p={1} mb={3}>
       <Box flexShrink="0">
-        <Box
-          as="img"
-          src={user?.pic}
-          alt={user?.nick}
-          boxSize="40px"
-          rounded="md"
-          mr="12px"
-          my="1"
-          objectFit="cover"
-          loading="lazy"
-        />
+        <Avatar src={user?.pic} name={user?.nick} />
       </Box>
 
       <Box d="flex" flexDirection="column">
