@@ -17,3 +17,25 @@
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
+.policyLink {
+  height: 20px;
+  font-size: 10px;
+}
+
+.privacy {
+  font-size: 14px;
+  max-width: 960px;
+  height: 800px;
+  max-height: 100%;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+.privacy p {
+  margin-bottom: 20px;
+}
+
+.privacy > * {
+  margin-left: 20px;
+}
