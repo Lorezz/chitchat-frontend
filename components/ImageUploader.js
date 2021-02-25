@@ -14,7 +14,7 @@ import { useDropzone } from 'react-dropzone';
 // import { humanFileSize, loadImgFromBlob } from 'lib/utils';
 import * as api from 'lib/api';
 
-const { NEXT_PUBLIC_IMGIX_URL } = process.env;
+const { NEXT_PUBLIC_IMGS_URL: IMAGES_URL } = process.env;
 const MAX_IMAGE_IN_MB = 2;
 const maxSize = MAX_IMAGE_IN_MB * 1024 * 1034;
 
@@ -65,17 +65,17 @@ function ImageUploader({ onDone }) {
   };
 
   const getPreviewImageUrl = (key) => {
+    // const params = '?w=250&h=250&auto=format,compress';
+    const params = '?tr=w-250,h=250';
     console.log('KEY', key);
-    return `${NEXT_PUBLIC_IMGIX_URL}/${key}${
-      key.includes('.gif') ? '' : '?w=250&h=250&auto=format,compress'
-    }`;
+    return `${IMAGES_URL}/${key}${key.includes('.gif') ? '' : params}`;
   };
 
   const getPicImageUrl = (key) => {
+    // const params = '?w=500&auto=format,compress';
+    const params = '?tr=w-500';
     console.log('KEY', key);
-    return `${NEXT_PUBLIC_IMGIX_URL}/${key}${
-      key.includes('.gif') ? '' : '?w=500&auto=format,compress'
-    }`;
+    return `${IMAGES_URL}/${key}${key.includes('.gif') ? '' : params}`;
   };
 
   async function fileUpload(file) {

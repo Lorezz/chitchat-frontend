@@ -2,17 +2,29 @@ import { Box, Text, Avatar } from '@chakra-ui/core';
 import moment from 'moment';
 import { isIE, isSafari } from 'react-device-detect';
 
+import { IMGIX, IMGKIT } from 'lib/envBridge';
+
 const Message = ({ data }) => {
   const { createdAt, text, _id, user, pic, audio } = data;
   let audioNotSupported = false;
   let audioType = 'webm';
   if (audio) {
-    console.log('audio  ', audio);
+    // console.log('audio  ', audio);
     audioNotSupported = isIE || isSafari;
     const parts = audio.split('.');
-    console.log('audio type', audioType);
+    // console.log('audio type', audioType);
     if (parts && parts.length > 0) audioType = parts[parts.length - 1];
   }
+
+  const cleanUrl = (url) => {
+    if (url.indexOf(IMGIX) > -1) {
+      url = url.replace(IMGIX, IMGKIT);
+      url = url.substring(0, url.lastIndexOf('?'));
+      // console.log('clean img', url);
+      return url + '?tr=w-500';
+    }
+    return url;
+  };
 
   return (
     <Box d="flex" key={_id} p={1} mb={3}>
@@ -53,7 +65,7 @@ const Message = ({ data }) => {
         )}
         {pic && (
           <img
-            src={pic}
+            src={cleanUrl(pic)}
             width="240px"
             loading="lazy"
             style={{ margin: '30px 0' }}
